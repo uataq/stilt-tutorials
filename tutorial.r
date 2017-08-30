@@ -7,11 +7,11 @@ library(raster)
 
 # Load emisisons inventory, assigning the gridded product to "emissions" and
 # extracting the time for each grid to "emissions_time"
-emissions <- readRDS('tutorial/emissions.rds') # umol CO2 m-2 s-1
+emissions <- readRDS('emissions.rds') # umol CO2 m-2 s-1
 emissions_time <- getZ(emissions)
 
 # Find all footprint files produced by STILT
-footprint_paths <- dir('out/footprints', full.names = T)
+footprint_paths <- dir('../out/footprints', full.names = T)
 
 # For each footprint in "footprint_paths", calculate the CO2 contribution from
 # the near-field emisisons
