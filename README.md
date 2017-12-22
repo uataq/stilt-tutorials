@@ -1,1 +1,1 @@
-These files are to accompany the STILT tutorials found at [https://uataq.github.io/stilt/](https://uataq.github.io/stilt/)
+These tutorials accompany STILT documentation available at [uataq.github.io/stilt](https://uataq.github.io/stilt/)

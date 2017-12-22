@@ -1,6 +1,6 @@
 # Salt Lake City light-rail train
 
-Here, we'll simulate carbon dioxide concentrations along the Utah Transit Authority "red" light-rail route. This tutorial assumes a base level of knowledge for [navigating UNIX based filesystems from the command line](https://www.digitalocean.com/community/tutorials/basic-linux-navigation-and-file-management), that you have read through the basics including [Installation](/installation.md), know where to find documentation for the different [Controls](/controls.md), and have completed the [previous WBB Carbon Dioxide tutorial](/wbb-carbon-dioxide.md).
+Here, we'll simulate carbon dioxide concentrations along the Utah Transit Authority "red" light-rail route. This tutorial assumes a base level of knowledge for [navigating UNIX based filesystems from the command line](https://www.digitalocean.com/community/tutorials/basic-linux-navigation-and-file-management), that you have read through the basics including [Installation](https://uataq.gitbooks.io/stilt/installation.html), know where to find documentation for the different [Controls](https://uataq.gitbooks.io/stilt/controls.html), and have completed the [previous WBB Carbon Dioxide tutorial](https://github.com/uataq/stilt-tutorials/tree/master/01-wbb).
 
 
 ## Project setup
@@ -29,7 +29,7 @@ You can download example data for this tutorial in the base directory of your ST
 
 ```r
 > git clone https://github.com/uataq/stilt-tutorials
-> ls stilt-tutorials/train
+> ls stilt-tutorials/02-train
 # emissions.rds met/ receptors.rds tutorial.r
 ```
 
@@ -48,7 +48,6 @@ Now, we need to configure STILT for our example. Begin by opening `r/run_stilt.r
 We'll be assuming that the train completes the transect within an hour and will use the same timestamp for all points, since our emissions estimates are hourly. Set the simulation timing and receptor locations with
 
 ```r
-...
 # Simulation timing, yyyy-mm-dd HH:MM:SS
 t_start <- '2015-12-10 23:00:00'
 t_end <- '2015-12-10 23:00:00'
@@ -61,23 +60,19 @@ r <- readRDS('stilt-tutorials/train/receptors.rds')
 lati <- r$lati
 long <- r$long
 zagl <- 5
-...
 ```
 
 Next, we need to tell STILT where to find the meteorological data files for the sample. Set the `met_directory` to
 
 ```r
-...
 # Meteorological data input
-met_directory <- file.path(stilt_wd, 'stilt-tutorials', 'train', 'met')
+met_directory <- file.path(stilt_wd, 'stilt-tutorials', '02-train', 'met')
 met_file_format <- '%Y%m%d.%Hz.hrrra'
-...
 ```
 
 Last, let's adjust the footprint grid settings so that it uses the same domain as our emissions inventory. We'll use the same grid and emissions inventory from the previous example. Set the footprint grid settings to
 
 ```r
-...
 # Footprint grid settings
 xmn <- -112.30
 xmx <- -111.52
@@ -87,15 +82,12 @@ xres <- 0.002
 yres <- xres
 smooth_factor <- 1
 time_integrate <- F
-...
 ```
 
 Last, we are now simulating concentrations for 215 receptors which will take significantly longer than the 24 receptors used in the previous example. Let's set STILT to run the simulations across a few parallel threads to speed things up by setting
 
 ```r
-...
 n_cores <- 2
-...
 ```
 
 > You can use a higher number of parallel threads depending on your system configuration. In general, you should not use more threads than available CPU cores. For this example, plan for 2GB of RAM to be allocated per thread to keep from going over available memory.
@@ -122,7 +114,7 @@ Now that we have our footprints, the next step is to convolve the footprints wit
 To convolve the footprints with emissions estimates,
 
 ```r
-> cd stilt-tutorials/train
+> cd stilt-tutorials/02-train
 > Rscript tutorial.r
 # 1
 # 2

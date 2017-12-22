@@ -1,6 +1,6 @@
 # WBB Carbon Dioxide
 
-Here, we'll simulate a day of carbon dioxide concentrations for the [UATAQ Lab](https://air.utah.edu), housed in the William Browning Building on the University of Utah campus. This tutorial assumes a base level of knowledge for [navigating UNIX based filesystems from the command line](https://www.digitalocean.com/community/tutorials/basic-linux-navigation-and-file-management), that you have read through the basics including [Installation](/installation.md), and know where to find documentation for the different [Controls](/controls.md).
+Here, we'll simulate a day of carbon dioxide concentrations for the [UATAQ Lab](https://air.utah.edu), housed in the William Browning Building on the University of Utah campus. This tutorial assumes a base level of knowledge for [navigating UNIX based filesystems from the command line](https://www.digitalocean.com/community/tutorials/basic-linux-navigation-and-file-management), that you have read through the basics including [Installation](https://uataq.gitbooks.io/stilt/installation.html), and know where to find documentation for the different [Controls](https://uataq.gitbooks.io/stilt/controls.html).
 
 ## Dependencies
 
@@ -65,7 +65,7 @@ The minimum we need to simulate the carbon dioxide concentration at WBB is (1) m
 
 ```r
 > git clone https://github.com/uataq/stilt-tutorials
-> ls stilt-tutorials/wbb
+> ls stilt-tutorials/01-wbb
 # emissions.rds met/ tutorial.r
 ```
 
@@ -83,7 +83,6 @@ Now, we need to configure STILT for our example. Begin by opening `r/run_stilt.r
 Set the simulation timing and receptor location to
 
 ```r
-...
 # Simulation timing, yyyy-mm-dd HH:MM:SS
 t_start <- '2015-12-10 00:00:00'
 t_end <- '2015-12-10 23:00:00'
@@ -95,23 +94,19 @@ by = 'hour')
 lati <- 40.766189
 long <- -111.847672
 zagl <- 25
-...
 ```
 
 Next, we need to tell STILT where to find the meteorological data files for the sample. Set the `met_directory` to
 
 ```r
-...
 # Meteorological data input
-met_directory <- file.path(stilt_wd, 'stilt-tutorials', 'wbb', 'met')
+met_directory <- file.path(stilt_wd, 'stilt-tutorials', '01-wbb', 'met')
 met_file_format <- '%Y%m%d.%Hz.hrrra'
-...
 ```
 
 Last, let's adjust the footprint grid settings so that it uses the same domain as our emissions inventory. Set the footprint grid settings to
 
 ```r
-...
 # Footprint grid settings
 xmn <- -112.30
 xmx <- -111.52
@@ -121,7 +116,6 @@ xres <- 0.002
 yres <- xres
 smooth_factor <- 1
 time_integrate <- F
-...
 ```
 
 That's it! We're all set to run the model. From the base directory of our STILT project, run `Rscript r/run_stilt.r` and wait a few minutes for the simulations to complete.
@@ -137,12 +131,12 @@ That's it! We're all set to run the model. From the base directory of our STILT 
 
 ## Applying emissions
 
-Now that we have 24 footprints for each hour of our simulation, the next step is to convolve the footprints with our emissions inventory. An example of how to do this can be found in `stilt-tutorials/wbb/tutorial.r`, which makes some overly-basic assumptions to calculate the carbon dioxide concentration at the receptor.
+Now that we have 24 footprints for each hour of our simulation, the next step is to convolve the footprints with our emissions inventory. An example of how to do this can be found in `stilt-tutorials/01-wbb/tutorial.r`, which makes some overly-basic assumptions to calculate the carbon dioxide concentration at the receptor.
 
 To convolve the footprints with emissions estimates,
 
 ```r
-> cd stilt-tutorials/wbb
+> cd stilt-tutorials/01-wbb
 > Rscript tutorial.r
 # 1
 # 2
