@@ -151,8 +151,6 @@ To convolve the footprints with emissions estimates,
 
 which will produce `timeseries.png` showing the modeled concentrations.
 
-<img height="350" width="350" src="/assets/timeseries.png"></img>
-
 ---
 
 #### Credits:
