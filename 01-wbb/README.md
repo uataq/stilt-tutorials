@@ -114,8 +114,6 @@ ymn <- 40.390
 ymx <- 40.95
 xres <- 0.002
 yres <- xres
-smooth_factor <- 1
-time_integrate <- F
 ```
 
 That's it! We're all set to run the model. From the base directory of our STILT project, run `Rscript r/run_stilt.r` and wait a few minutes for the simulations to complete.
