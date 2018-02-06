@@ -80,7 +80,8 @@ ggmap(basemap, padding = 0) +
   coord_cartesian() +
   geom_raster(data = xyz, aes(x = x, y = y, fill = layer), alpha = 0.5) +
   scale_fill_gradientn(colors = c('blue','cyan','green','yellow','orange','red'),
-                       guide = guide_colorbar(title = expression(frac(ppm ~ CO[2], m^{2} ~ s)))) +
+                       guide = guide_colorbar(
+                         title = expression(frac(ppm, frac(mu*mol,  m^2 ~ s))))) +
   labs(x = NULL, y = NULL, fill = NULL) +
   theme(legend.key.width = unit(0.7, 'in'),
         legend.position = 'bottom')
@@ -119,7 +120,8 @@ ggmap(basemap, padding = 0) +
   coord_cartesian() +
   geom_raster(data = xyz, aes(x = x, y = y, fill = log10(layer)), alpha = 0.5) +
   scale_fill_gradientn(colors = c('blue','cyan','green','yellow','orange','red'),
-                       guide = guide_colorbar(title = expression(log[10] * (CO[2])))) +
+                       guide = guide_colorbar(
+                         title = expression(log[10] * frac(ppm ~ CO[2], m^{2} ~ s)))) +
   labs(x = NULL, y = NULL, fill = NULL) +
   theme(legend.key.width = unit(0.7, 'in'),
         legend.position = 'bottom')
