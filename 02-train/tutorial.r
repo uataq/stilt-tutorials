@@ -37,7 +37,7 @@ concentration <- lapply(1:length(footprint_paths), function(i) {
 
   # Calculate the near-field CO2 contribution by taking the product of the
   # footprints and the fluxes
-  data_frame(Time_UTC = sim$run_time,
+  data.frame(Time_UTC = sim$run_time,
              long = sim$long,
              lati = sim$lati,
              dCO2 = sum(values(foot * emissions_subset), na.rm = T))
