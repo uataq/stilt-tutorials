@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 # WBB CO2 STILT Tutorial
 # Ben Fasoli
 
@@ -11,9 +12,9 @@ for (pkg in pkgs) {
 }
 
 
-# Load emisisons inventory, assigning the gridded product to "emissions" and
+# Load emisisons inventory, assigning the gridded product to emissions and
 # extracting the time for each grid to "emissions_time"
-emissions <- readRDS('emissions.rds') # umol CO2 m-2 s-1
+emissions <- readRDS('emissions.rds')  # umol CO2 m-2 s-1
 emissions_time <- getZ(emissions)
 
 # Find all footprint files produced by STILT
@@ -30,7 +31,7 @@ concentration <- lapply(1:length(footprint_paths), function(i) {
   if (nlayers(foot) == 1)
     foot <- raster(foot, layer = 1)
 
-  # Subset "emissions" to match the footprint timestamps
+  # Subset emissions to match the footprint timestamps
   band <- findInterval(time, emissions_time)
   emissions_subset <- subset(emissions, band)
 
