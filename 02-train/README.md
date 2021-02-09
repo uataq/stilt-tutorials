@@ -7,7 +7,8 @@ We'll simulate carbon dioxide concentrations along the Utah Transit Authority "r
 Let's start a new STILT project using the [uataq R package](https://github.com/benfasoli/uataq). We can initialize our STILT project in our current directory within R using
 
 ```bash
-uataq::stilt_init('train-tutorial', branch='hysplit-merge')
+Rscript -e "uataq::stilt_init('train-tutorial')"
+cd train-tutorial
 ```
 
 Success! We've now set up our STILT project.
@@ -19,7 +20,7 @@ To simulate the carbon dioxide concentrations along the light-rail route, we nee
 You can download example data for this tutorial in the base directory of your STILT project using
 
 ```bash
-git clone https://github.com/uataq/stilt-tutorials
+git clone --depth=1 https://github.com/uataq/stilt-tutorials
 ls stilt-tutorials/02-train
 # emissions.rds met/ receptors.rds tutorial.r
 ```
@@ -42,7 +43,7 @@ We'll be assuming that the train completes the transect within an hour and will 
 # lati <- 40.5
 # long <- -112.0
 # zagl <- 5
-# 
+#
 # Expand the run times, latitudes, and longitudes to form the unique receptors
 # that are used for each simulation
 # receptors <- expand.grid(run_time = run_times, lati = lati, long = long,

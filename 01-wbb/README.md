@@ -19,7 +19,7 @@ We also need the NetCDF libraries to be installed. Footprints are saved in compr
 
 ```bash
 nc-config --all
-# This netCDF 4.7.4 has been built with the following features: 
+# This netCDF 4.7.4 has been built with the following features:
 #
 #   --cc            -> /usr/local/Homebrew/Library/Homebrew/shims/mac/super/clang
 #   --cflags        -> -I/usr/local/Cellar/netcdf/4.7.4_1/include
@@ -38,7 +38,7 @@ Rscript -e "install.packages('devtools'); devtools::install_github('benfasoli/ua
 Then we can initialize our STILT project -
 
 ```bash
-Rscript -e "uataq::stilt_init('wbb-tutorial', branch='hysplit-merge')"
+Rscript -e "uataq::stilt_init('wbb-tutorial')"
 # Cloning into 'wbb-tutorial'...
 # remote: Enumerating objects: 60, done.
 # remote: Counting objects: 100% (60/60), done.
@@ -50,15 +50,15 @@ Rscript -e "uataq::stilt_init('wbb-tutorial', branch='hysplit-merge')"
 # STILT installation successful.
 #
 # Relevant manuscripts:
-# 1. Fasoli, B., Lin, J. C., Bowling, D. R., Mitchell, L., and Mendoza, D.: 
-#    Simulating atmospheric tracer concentrations for spatially distributed 
-#    receptors: updates to the Stochastic Time-Inverted Lagrangian Transport 
-#    model's R interface (STILT-R version 2), Geosci. Model Dev., 11, 2813-2824, 
+# 1. Fasoli, B., Lin, J. C., Bowling, D. R., Mitchell, L., and Mendoza, D.:
+#    Simulating atmospheric tracer concentrations for spatially distributed
+#    receptors: updates to the Stochastic Time-Inverted Lagrangian Transport
+#    model's R interface (STILT-R version 2), Geosci. Model Dev., 11, 2813-2824,
 #    [10.5194/gmd-11-2813-2018](https://doi.org/10.5194/gmd-11-2813-2018), 2018.
 # 2. Lin, J. C., Gerbig, C., Wofsy, S. C., Andrews, A. E., Daube, B. C., Davis,
-#    K. J. and Grainger, C. A.: A near-field tool for simulating the upstream 
+#    K. J. and Grainger, C. A.: A near-field tool for simulating the upstream
 #    influence of atmospheric observations: The Stochastic Time-Inverted Lagrangian
-#    Transport (STILT) model, J. Geophys. Res., 108(D16), ACH 2-1-ACH 2-17, 
+#    Transport (STILT) model, J. Geophys. Res., 108(D16), ACH 2-1-ACH 2-17,
 #    [10.1029/2002JD003161](https://doi.org/10.1029/2002JD003161), 2003.
 #
 # We strongly suggest you subscribe to the critical update notifications at
@@ -71,7 +71,7 @@ Check to be sure the `hycs_std` and `xtrct_grid` binaries were installed in `wbb
 ```bash
 cd wbb-tutorial
 ls exe
-# ASCDATA.CFG  ROUGLEN.ASC  arw2arl  xtrct_grid  LANDUSE.ASC  TERRAIN.ASC  hycs_std 
+# ASCDATA.CFG  ROUGLEN.ASC  arw2arl  xtrct_grid  LANDUSE.ASC  TERRAIN.ASC  hycs_std
 ```
 
 Success! We've now set up our STILT project.
@@ -81,7 +81,7 @@ Success! We've now set up our STILT project.
 The minimum we need to simulate the carbon dioxide concentration at WBB is (1) meteorological data to transport the STILT particles and (2) a near-field emissions inventory. You can download example data for this tutorial in the base directory of your STILT project using
 
 ```bash
-git clone https://github.com/uataq/stilt-tutorials
+git clone --depth=1 https://github.com/uataq/stilt-tutorials
 ls stilt-tutorials/01-wbb
 # emissions.rds met/ tutorial.r
 ```
@@ -159,9 +159,9 @@ which will output `timeseries.html` to the current directory showing the modeled
 
 as well as maps for the average footprint (`average_footprint.html`) and average contribution of fluxes over space (`average_contribution.html`) -
 
-Average Footprint | Average CO2 Contribution
-------------------|-----------------
-![](assets/wbb-tutorial-average-footprint.png)  |  ![](assets/wbb-tutorial-average-contribution.png)
+| Average Footprint                              | Average CO2 Contribution                          |
+| ---------------------------------------------- | ------------------------------------------------- |
+| ![](assets/wbb-tutorial-average-footprint.png) | ![](assets/wbb-tutorial-average-contribution.png) |
 
 > The boundary of the contributed emissions is the extent of Salt Lake County, which is the area for which the emissions data exists.
 
