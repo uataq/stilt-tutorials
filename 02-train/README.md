@@ -22,7 +22,7 @@ You can download example data for this tutorial in the base directory of your ST
 ```bash
 git clone --depth=1 https://github.com/uataq/stilt-tutorials
 ls stilt-tutorials/02-train
-# README.md    emissions.rds    met    receptors.rds    tutorial.r
+# README.md    assets    emissions.rds    met    receptors.rds    tutorial.r
 ```
 
 which contains
@@ -110,3 +110,5 @@ Rscript tutorial.r
 ```
 
 which will output `map.png` to the current directory showing the modeled concentrations.
+
+![Train CO2 timeseries](assets/train-tutorial-map.png)
