@@ -32,7 +32,7 @@ nc-config --all
 Now that we have the dependencies installed, let's start a new STILT project. We can install this package from Github -
 
 ```bash
-Rscript -e "install.packages('devtools'); devtools::install_github('benfasoli/uataq')"
+Rscript -e "install.packages('devtools', repos='https://cloud.r-project.org/'); devtools::install_github('benfasoli/uataq')"
 ```
 
 Then we can initialize our STILT project -
@@ -169,4 +169,4 @@ as well as maps for the average footprint (`average_footprint.html`) and average
 
 ## Next steps
 
-- [Tutorial: Light-rail simulations](https://github.com/uataq/stilt-tutorials/tree/master/02-train)
+-   [Tutorial: Light-rail simulations](https://github.com/uataq/stilt-tutorials/tree/master/02-train)
