@@ -32,7 +32,7 @@ nc-config --all
 Now that we have the dependencies installed, let's start a new STILT project. We can install this package from Github -
 
 ```bash
-Rscript -e "install.packages('devtools'); devtools::install_github('benfasoli/uataq')"
+Rscript -e "install.packages('devtools', repos='https://cloud.r-project.org/'); devtools::install_github('benfasoli/uataq')"
 ```
 
 Then we can initialize our STILT project -
@@ -83,7 +83,7 @@ The minimum we need to simulate the carbon dioxide concentration at WBB is (1) m
 ```bash
 git clone --depth=1 https://github.com/uataq/stilt-tutorials
 ls stilt-tutorials/01-wbb
-# emissions.rds met/ tutorial.r
+# README.md    assets    emissions.rds    met    tutorial.r
 ```
 
 which contains
@@ -130,7 +130,7 @@ Last, we need to tell STILT where to find the meteorological data files for the 
 ```r
 # Meteorological data input
 met_path <- file.path(stilt_wd, 'stilt-tutorials', '01-wbb', 'met')
-met_file_format <- '%Y%m%d.%H'
+met_file_format <- '%Y%m%d.%Hz.hrrra'
 ```
 
 That's it! We're all set to run the model. From the base directory of our STILT project, run `Rscript r/run_stilt.r` and wait a few minutes for the simulations to complete.
@@ -169,4 +169,4 @@ as well as maps for the average footprint (`average_footprint.html`) and average
 
 ## Next steps
 
-- [Tutorial: Light-rail simulations](https://github.com/uataq/stilt-tutorials/tree/master/02-train)
+-   [Tutorial: Light-rail simulations](https://github.com/uataq/stilt-tutorials/tree/master/02-train)
