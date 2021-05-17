@@ -69,9 +69,9 @@ The next step of this guide is to show you how to run the `arw2arl` code on WRF 
 
 1. The ARL converter configuration file `WRFDATA.CFG`
 1. WRF output files
-   > Files for the tutorial were downloaded during [Project setup](#project-setup) to stilt-tutorials/03-wrf/wrfout
+    > Files for the tutorial were downloaded during [Project setup](#project-setup) to stilt-tutorials/03-wrf/wrfout
 1. The ARL executable `arw2arl`
-   > Found at exe/arw2arl in your STILT project
+    > Found at exe/arw2arl in your STILT project
 
 The `WRFDATA.CFG` file is responsible for configuring the ARL converter to run with your WRF input files. Most of the times, this can be left as the default, which has been provided below. However, there are some instances were you may need to make changes to this file, such as using instantaneous winds, TKE variables, and so on. More documentation on how to setup the configuration can be found in [Note-arw2arl.pdf](Note-arw2arl.pdf).
 

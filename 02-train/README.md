@@ -22,7 +22,7 @@ You can download example data for this tutorial in the base directory of your ST
 ```bash
 git clone --depth=1 https://github.com/uataq/stilt-tutorials
 ls stilt-tutorials/02-train
-# emissions.rds met/ receptors.rds tutorial.r
+# README.md    emissions.rds    met    receptors.rds    tutorial.r
 ```
 
 which contains
@@ -59,7 +59,7 @@ Next, we need to tell STILT where to find the meteorological data files for the 
 ```r
 # Meteorological data input
 met_path <- file.path(stilt_wd, 'stilt-tutorials', '02-train', 'met')
-met_file_format <- '%Y%m%d.%H'
+met_file_format <- '%Y%m%d.%Hz.hrrra'
 ```
 
 Last, let's adjust the footprint grid settings so that it uses the same domain as our emissions inventory. We'll use the same grid and emissions inventory from the previous example. Set the footprint grid settings to
